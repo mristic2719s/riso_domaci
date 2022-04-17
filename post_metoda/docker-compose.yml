@@ -1,0 +1,9 @@
+version: '3'
+services:
+ python-docker_post:
+  container_name: python-docker_post
+  image: python-docker_post
+  ports:
+  - port: 8081
+    targetPort:  8081
+    protocol: TCP
