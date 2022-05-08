@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: postmetoda
+  labels:
+    example: postmetoda
+spec:
+      containers:
+      - image: mristic2719s/postmetoda
+        name: postmetoda
+        ports:
+        - containerPort: 9095

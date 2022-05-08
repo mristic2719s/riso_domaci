@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: risogetmetoda
+  labels:
+    example: getmetoda
+spec:
+      containers:
+      - image: mristic2719s/getmetoda
+        name: getmetoda
+        ports:
+        - containerPort: 8081

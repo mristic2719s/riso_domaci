@@ -1,5 +1,10 @@
+from flask import Flask, request
 import http.client
 import json
+from werkzeug.exceptions import BadRequestKeyError
+
+SERVICE_DEBUG = True
+app = Flask(__name__)
 
 conn = http.client.HTTPConnection("localhost", 8081)
 payload = json.dumps({
@@ -24,5 +29,9 @@ headers = {
 conn.request("POST", "/users", payload, headers)
 res = conn.getresponse()
 data = res.read()
+print('Uspešno ste se povezali sa ostalim docker containerom!')
+print('Uspešno ste dodali korisnika pomoću POST metode')
 print(data.decode("utf-8"))
-print("Uspesno dodat user pomocu skripte koja se koristi unutar docker containera!")
+
+if __name__ == '__main__':
+    app.run(host = "0.0.0.0", port = 9095, debug = False)
